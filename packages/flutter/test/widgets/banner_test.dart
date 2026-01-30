@@ -8,6 +8,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:leak_tracker_flutter_testing/leak_tracker_flutter_testing.dart';
 
+import 'widgets_app_tester.dart';
+
 class TestCanvas implements Canvas {
   final List<Invocation> invocations = <Invocation>[];
 
@@ -278,13 +280,7 @@ void main() {
 
   testWidgets('Banner widget in WidgetsApp', (WidgetTester tester) async {
     debugDisableShadows = false;
-    await tester.pumpWidget(
-      WidgetsApp(
-        home: const Placeholder(),
-        color: const Color(0xFF2196F3),
-        builder: (context, _) => const SizedBox(),
-      ),
-    );
+    await tester.pumpWidget(const TestWidgetsApp(home: Placeholder(), color: Color(0xFF2196F3)));
     expect(
       find.byType(CheckedModeBanner),
       paints
