@@ -280,7 +280,7 @@ void main() {
 
   testWidgets('Banner widget in WidgetsApp', (WidgetTester tester) async {
     debugDisableShadows = false;
-    await tester.pumpWidget(const TestWidgetsApp(home: Placeholder(), color: Color(0xFF2196F3)));
+    await tester.pumpWidget(const TestWidgetsApp(home: Placeholder()));
     expect(
       find.byType(CheckedModeBanner),
       paints
